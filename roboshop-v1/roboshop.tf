@@ -16,7 +16,7 @@ resource "aws_instance" "mongodb" {
   }
 }
 
-resource "aws_instance" "cataloue" {
+resource "aws_instance" "catalogue" {
   ami           = "ami-09c813fb71547fc4f"
   instance_type = "t3.small"
 
