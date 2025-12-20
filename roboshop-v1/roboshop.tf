@@ -9,10 +9,10 @@ resource "aws_instance" "frontend" {
 }
 
 resource "aws_route53_record" "frontend" {
-  zone_id = Z02655483UAEAXVIBG9GU
+  zone_id = "Z02655483UAEAXVIBG9GU"
   name    = "frontend-dev.learntechnology.space"
   type    = "A"
-  ttl     = 300
+  ttl     = 30
   records = [aws_instance.frontend.private_ip]
 }
 
