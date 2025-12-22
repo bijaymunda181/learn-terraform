@@ -1,7 +1,31 @@
+# plan variable
 variable "fruit_name" {
   default = "apple"
 }
 
 output "fruit_name" {
   value = var.fruit_name
+}
+
+# List Variable
+variable "fruits" {
+  default = [
+  "apple",
+  "banana"
+  ]
+  // default = [ "apple", banana" ] // single line syntax
+}
+
+# Map Variable, Map of maps
+variable "fruit_stck_with_prise" {
+  default = {
+    apple = {
+      stock = 100
+      price = 3
+    }
+    banana = {
+      stock = 400
+      price = 1
+    }
+  }
 }
