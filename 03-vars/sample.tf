@@ -17,7 +17,7 @@ variable "fruits" {
 }
 
 # Map Variable, Map of maps
-variable "fruit_stck_with_prise" {
+variable "fruit_stock_with_prise" {
   default = {
     apple = {
       stock = 100
