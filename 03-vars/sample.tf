@@ -29,3 +29,8 @@ variable "fruit_stck_with_prise" {
     }
   }
 }
+
+# Access a list Variable, List index Start From Zero
+output "fruits_first" {
+  value = var.fruits[0]
+}
