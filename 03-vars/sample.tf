@@ -41,5 +41,5 @@ output "fruits_second" {
 
 ## Access Map Variable
 output "fruit_stock_apple" {
-  value = var.stock_banana["banana"]
+  value = var.fruit_stock["apple"]
 }
