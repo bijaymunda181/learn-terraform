@@ -43,3 +43,7 @@ output "fruits_second" {
 output "fruit_stock_apple" {
   value = var.fruit_stock_with_price["apple"]["stock"]
 }
+
+output "fruit_price_apple" {
+  value = var.fruit_stock_with_price["apple"]["price"]
+}
