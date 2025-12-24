@@ -1,4 +1,4 @@
-# plan variable
+# plain variable
 variable "fruit_name" {
   default = "apple"
 }
