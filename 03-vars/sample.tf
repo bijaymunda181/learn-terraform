@@ -55,3 +55,20 @@ output "fruit_stock_banana" {
 output "fruit_price_banana" {
   value = var.fruit_stock_with_price["banana"]["price"]
 }
+
+# Variable Data Types
+variable "fruit_details" {
+  default = {
+    apple = {
+      stock = 100 # Number
+      type = washington # String
+      for_sale = true # Boolean
+    }
+  }
+}
+
+
+# Variable in a combination of any other string then it need to be with in ${}
+output "fruit_details_apple" {
+  value = "Apple Stock = ${var.fruit_details["apple"]["stock"]} , Apple type = ${var.fruit_details["apple"]["type"]}, Apple sale status = ${var.fruit_details["apple"]["for_sale"]}"
+}
