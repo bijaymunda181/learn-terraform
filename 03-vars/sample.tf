@@ -61,7 +61,7 @@ variable "fruit_details" {
   default = {
     apple = {
       stock = 100 # Number
-      type = washington # String
+      type = "washington" # String
       for_sale = true # Boolean
     }
   }
