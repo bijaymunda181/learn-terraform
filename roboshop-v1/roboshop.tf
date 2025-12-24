@@ -1,7 +1,23 @@
+variable "ami" {
+  default = "ami-09c813fb71547fc4f"
+}
+
+variable "instance_type" {
+  default = "t3.small"
+}
+
+variable "security_groups" {
+  default = ["sg-03df7f4a9485bc781"]
+}
+
+variable "zone_id" {
+  default = "Z02655483UAEAXVIBG9GU"
+}
+
 resource "aws_instance" "frontend" {
-  ami           = "ami-09c813fb71547fc4f"
-  instance_type = "t3.small"
-  vpc_security_group_ids = ["sg-03df7f4a9485bc781"]
+  ami           = var.ami
+  instance_type = var.instance_type
+  vpc_security_group_ids = var.security_groups
 
   tags = {
     Name = "frontend"
@@ -9,7 +25,7 @@ resource "aws_instance" "frontend" {
 }
 
 resource "aws_route53_record" "frontend" {
-  zone_id = "Z02655483UAEAXVIBG9GU"
+  zone_id = var.zone_id
   name    = "frontend-dev.learntechnology.space"
   type    = "A"
   ttl     = 30
