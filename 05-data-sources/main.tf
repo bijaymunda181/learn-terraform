@@ -1,3 +1,5 @@
+# https://www.youtube.com/watch?v=_NU3jIwvPGs&t=554s
+
 data "aws_ami_ids" "ami" {
   name_regex       = "Centos-*"
   owners           = ["973714476881"]
