@@ -1,8 +1,8 @@
 variable "components" {
-  default = ["frontend", "mongodb", "catalogue"]
+  default = ["frontend", "mongodb", ]
 }
 
-resource "aws_instance" "componen" {
+resource "aws_instance" "component" {
   count = length(var.components)
   ami           = "ami-09c813fb71547fc4f"
   instance_type = "t3.small"
