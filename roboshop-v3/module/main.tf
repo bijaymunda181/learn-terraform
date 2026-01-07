@@ -3,6 +3,10 @@ resource "aws_instance" "instance" {
   instance_type = var.instance_type
   vpc_security_group_ids = var.security_groups
 
+  provisioner "local-exec" {
+    command = "sleep 60"
+  }
+
   tags = {
     Name = var.name
   }
