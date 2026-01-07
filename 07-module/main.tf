@@ -1,6 +1,8 @@
 module "print_ami" {
   source = "./local-module"
 }
-output "print_ami" {
-  value = "print_ami"
+
+
+output "ami" {
+  value = data.aws_ami_ids.ami
 }
