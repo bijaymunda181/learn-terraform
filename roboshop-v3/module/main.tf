@@ -13,7 +13,7 @@ resource "aws_route53_record" "record" {
   name    = "${var.name}-dev.learntechnology.space"
   type    = "A"
   ttl     = 30
-  records = [lookup(lookup(aws_instance.instance, each.key, null), "private_ip", null) ]
+  records = [aws_instance.instance.private_ip]
 }
 
 
