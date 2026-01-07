@@ -32,7 +32,7 @@ resource "null_resource" "ansible" {
   ]
   provisioner "local-exec" {
     command = <<EOF
-    cd E:\Github-Repos\roboshop-ansible
+    cd /root/rev-ansible
 git pull
 sleep 30
 ansible-playbook -i ${var.name}-dev.learntechnology.space, main.yml -e ansible_user=centos -e ansible_passwoed=DevOps321 -e component=${var.name}
