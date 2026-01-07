@@ -1,11 +1,16 @@
+terraform {
+  required_providers {
+    null = {
+      source  = "hashicorp/null"
+      version = "3.2.2"
+    }
+  }
+}
 resource "aws_instance" "instance" {
   ami           = data.aws_ami.ami.id
   instance_type = var.instance_type
   vpc_security_group_ids = var.security_groups
 
-  provisioner "local-exec" {
-    command = "sleep 60"
-  }
 
   tags = {
     Name = var.name
@@ -19,6 +24,23 @@ resource "aws_route53_record" "record" {
   ttl     = 30
   records = [aws_instance.instance.private_ip]
 }
+
+resource "null_resource" "ansible" {
+
+  depends_on = [
+  aws_route53_record.record
+  ]
+  provisioner "local-exec" {
+    command = <<EOF
+    cd E:\Github-Repos\roboshop-ansible
+git pull
+sleep 30
+ansible-playbook -i ${var.name}-dev.learntechnology.space, main.yml -e ansible_user=centos -e ansible_passwoed=DevOps321 -e component=${var.name}
+EOF
+  }
+
+}
+
 
 
 
